@@ -1,45 +1,40 @@
-# --- 1. Nuestro Catálogo Constante de Móviles ---
-# Una lista de diccionarios. Cada móvil tiene sus características.
-# 'camara_top' es True si es conocido por su cámara (ej: un Pixel o un iPhone Pro)
+# Catálogo Constante de Móviles. Una lista de diccionarios. Cada móvil tiene sus características.
 
 CATALOGO_MOVILES = [
     # Rango 1 (150€ - 300€)
-    {'nombre': 'Samsung Galaxy A15', 'precio': 170, 'os': 'Android', 'camara_top': False},
-    {'nombre': 'Xiaomi Redmi Note 13', 'precio': 220, 'os': 'Android', 'camara_top': True},
+    {'nombre': 'Samsung Galaxy A36', 'precio': 255, 'os': 'Android', 'camara_top': False},
+    {'nombre': 'POCO X7 Pro', 'precio': 299, 'os': 'Android', 'camara_top': True},
 
     # Rango 2 (300€ - 450€)
-    {'nombre': 'Samsung Galaxy A35', 'precio': 350, 'os': 'Android', 'camara_top': False},
-    {'nombre': 'Google Pixel 7a', 'precio': 400, 'os': 'Android', 'camara_top': True},
+    {'nombre': 'Samsung Galaxy A56', 'precio': 359, 'os': 'Android', 'camara_top': False},
+    {'nombre': 'realme 14 Pro+', 'precio': 399, 'os': 'Android', 'camara_top': True},
 
     # Rango 3 (450€ - 600€)
-    {'nombre': 'Samsung Galaxy A55', 'precio': 480, 'os': 'Android', 'camara_top': False},
-    {'nombre': 'iPhone SE (3ª Gen)', 'precio': 529, 'os': 'iOS', 'camara_top': False},
+    {'nombre': 'iPhone 16e', 'precio': 529, 'os': 'iOS', 'camara_top': False},
+    {'nombre': 'Google Pixel 9a', 'precio': 549, 'os': 'Android', 'camara_top': True},
 
     # Rango 4 (600€ - 800€)
-    {'nombre': 'Google Pixel 8', 'precio': 700, 'os': 'Android', 'camara_top': True},
-    {'nombre': 'iPhone 13', 'precio': 739, 'os': 'iOS', 'camara_top': False},
+    {'nombre': 'iPhone 15', 'precio': 759, 'os': 'iOS', 'camara_top': False},
+    {'nombre': 'Google Pixel 9', 'precio': 799, 'os': 'Android', 'camara_top': True},
 
     # Rango 5 (800€ - 1000€)
-    {'nombre': 'Samsung Galaxy S24', 'precio': 900, 'os': 'Android', 'camara_top': True},
-    {'nombre': 'iPhone 15', 'precio': 959, 'os': 'iOS', 'camara_top': True},
+    {'nombre': 'iPhone 16', 'precio': 859, 'os': 'iOS', 'camara_top': True},
+    {'nombre': 'Samsung Galaxy S25', 'precio': 959, 'os': 'Android', 'camara_top': True},
 
     # Rango 6 (1000€+)
-    {'nombre': 'Samsung Galaxy S24 Ultra', 'precio': 1300, 'os': 'Android', 'camara_top': True},
-    {'nombre': 'iPhone 15 Pro Max', 'precio': 1469, 'os': 'iOS', 'camara_top': True}
+    {'nombre': 'Samsung Galaxy S25 Ultra', 'precio': 1459, 'os': 'Android', 'camara_top': True},
+    {'nombre': 'iPhone 17 Pro Max', 'precio': 1469, 'os': 'iOS', 'camara_top': True}
 ]
 
+# 2. Funciones
 
-# --- 2. Funciones de Ayuda para Preguntar ---
+# En esta función pedimos el presupuesto al usuario.
+def preguntar_presupuesto() -> float: # Dejamos claro que la respuesta del input tiene que ser un valor flotante.
 
-def preguntar_presupuesto() -> float:
-    """
-    Pregunta al usuario su presupuesto y valida que sea
-    un número positivo. Devuelve el float.
-    """
     while True:
         try:
-            presupuesto_str = input("¿Cuál es tu presupuesto máximo? (ej: 400): €")
-            presupuesto = float(presupuesto_str)
+            presupuesto_str = input("¿Cuál es tu presupuesto máximo?: €")
+            presupuesto = float(presupuesto_str) # Aseguramos que el valor de entrada del input sea un núm., no un string.
 
             if presupuesto >= 0:
                 return presupuesto
@@ -47,14 +42,11 @@ def preguntar_presupuesto() -> float:
                 print("Error: El presupuesto no puede ser negativo.\n")
 
         except ValueError:
-            print("Error: Eso no es un número. Introduce solo cifras (ej: 400).\n")
+            print("Error: Introduce solo cifras.\n")
 
+# Pedimos el sistema operativo al usuario.
+def preguntar_os() -> str: # Dejamos claro que la respuesta del input tiene que ser un valor string.
 
-def preguntar_os() -> str:
-    """
-    Pregunta al usuario por su S.O. preferido y
-    devuelve "Android" o "iOS".
-    """
     print("\n¿Qué Sistema Operativo prefieres?")
     while True:
         opcion = input("Escribe [1] para Android o [2] para iOS: ")
@@ -66,13 +58,10 @@ def preguntar_os() -> str:
 
         print(f"Error: Opción '{opcion}' no válida. Escribe solo 1 o 2.\n")
 
+# Pedimos la importancia de la cámara al usuario.
+def preguntar_camara() -> bool: # Dejamos claro que la respuesta del input tiene que ser un valor bool.
 
-def preguntar_camara() -> bool:
-    """
-    Pregunta al usuario si la cámara es importante.
-    Devuelve True (si) o False (no).
-    """
-    print("\n¿La calidad de la cámara es una prioridad alta para ti?")
+    print("\n¿La calidad de la cámara es importante para ti?")
     while True:
         opcion = input("Escribe [s] para Sí, o [n] para No: ")
 
@@ -83,38 +72,33 @@ def preguntar_camara() -> bool:
 
         print(f"Error: Opción '{opcion}' no válida. Escribe solo s o n.\n")
 
-
-# --- 3. Función Principal de Lógica ---
+# 3. Función Principal de la Lógica
 
 def encontrar_movil_ideal(presupuesto: float, os_preferido: str, camara_importante: bool):
-    """
-    Filtra el CATÁLOGO para encontrar la mejor opción.
-    Devuelve el diccionario del móvil, o None si no hay match.
-    """
 
-    # 1. Creamos una lista de candidatos que cumplen los filtros
+    # 3.1 Creamos una lista de los modelos que cumplen los filtros
     candidatos = []
     for movil in CATALOGO_MOVILES:
 
-        # Filtro 1: ¿Me lo puedo permitir?
+        # Filtro 1: ¿Entra en el presupuesto?
         if movil['precio'] > presupuesto:
             continue  # Demasiado caro, saltamos al siguiente
 
-        # Filtro 2: ¿Es el S.O. que quiero?
+        # Filtro 2: ¿Es el S.O. elegido?
         if movil['os'] != os_preferido:
             continue  # S.O. incorrecto, saltamos
 
-        # Filtro 3: ¿Cumple mis requisitos de cámara?
+        # Filtro 3: ¿Cumple los requisitos de cámara?
         # Si la cámara es importante (True), el móvil DEBE ser 'camara_top' (True)
-        # Si (camara_importante es True) Y (movil['camara_top'] es False) -> Lo descartamos
+        # Si "camara_importante es True" y (movil['camara_top'] es False) lo descartamos
         if camara_importante and not movil['camara_top']:
             continue  # La cámara no es lo suficientemente buena, saltamos
 
         # Si el móvil ha pasado todos los filtros, es un candidato
         candidatos.append(movil)
 
-    # 2. De todos los candidatos, ¿cuál es el mejor?
-    # El "mejor" es el más caro que me puedo permitir.
+    # 3.2 De todos los candidatos, ¿cuál es el mejor?
+    # El "mejor" es el más caro que entra en el presupuesto.
     if not candidatos:
         return None  # No se encontró nada
 
@@ -125,12 +109,9 @@ def encontrar_movil_ideal(presupuesto: float, os_preferido: str, camara_importan
     return candidatos[0]
 
 
-# --- 4. Función Main (la que orquesta todo) ---
+# 4. Función Main
 
 def main():
-    """
-    Función principal del script.
-    """
     print("👋 ¡Bienvenido al recomendador de móviles!")
     print("Te ayudaré a encontrar tu próximo móvil ideal.")
     print("-" * 40)
@@ -139,10 +120,11 @@ def main():
     presupuesto = preguntar_presupuesto()
 
     if presupuesto < 150:
-        print("\nLo sentimos... 😔")
-        print(f"Con menos de 150€, no podemos recomendarte nada.")
-        print("Cualquier móvil en ese rango será una castaña y te frustrará.")
-        print("Te aconsejamos ahorrar un poco más.")
+        print("""
+        ¡Menos de 150€!😱
+        Con menos de 150€, no podemos recomendarte nada.
+        Cualquier móvil en ese rango será una castaña.
+        Ahorra un poco más pobre.😈""")
         return  # Termina el programa
 
     # 2. Preguntar resto de preferencias
