@@ -45,7 +45,7 @@ def preguntar_presupuesto() -> float: # Dejamos claro que la respuesta del input
             print("Error: Introduce solo cifras.\n")
 
 # Pedimos el sistema operativo al usuario.
-def preguntar_os() -> str: # Dejamos claro que la respuesta del input tiene que ser un valor string.
+def preguntar_os() -> str: # Dejamos claro que la respuesta del input tiene que ser un valor integer.
 
     print("\n¿Qué Sistema Operativo prefieres?")
     while True:
@@ -65,9 +65,9 @@ def preguntar_camara() -> bool: # Dejamos claro que la respuesta del input tiene
     while True:
         opcion = input("Escribe [s] para Sí, o [n] para No: ")
 
-        if opcion.lower().startswith('s'):
+        if opcion.lower() == 's':
             return True
-        elif opcion.lower().startswith('n'):
+        elif opcion.lower() =='n':
             return False
 
         print(f"Error: Opción '{opcion}' no válida. Escribe solo s o n.\n")

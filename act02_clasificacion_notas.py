@@ -15,7 +15,7 @@ def main():
 # Función principal del script de notas.
 
     # 1. Lista de asignaturas
-    asignaturas = ["Cálculo","Álgebra Lineal","Probabilidad y Estadística","Fundamentos de Programación" ]
+    asignaturas = ("Cálculo","Álgebra Lineal","Probabilidad y Estadística","Fundamentos de Programación")
 
     # 2. Un diccionario vacío para guardar las notas
     resultados = {}
