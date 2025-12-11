@@ -5,13 +5,11 @@
 UN_BTC_A_USD= 103656.40
 
 # 2. Definición de Funciones.
-def USD_a_BTC(cantidad_USD):
+def USD_a_BTC(cantidad_USD): # Función para calcular cuántos BTC son x $. Usa la constante UN_BTC_A_USD para realizar el cálculo..
     return cantidad_USD / UN_BTC_A_USD
-# Función para calcular cuántos BTC son x $. Usa la constante UN_BTC_A_USD para realizar el cálculo..
 
-def BTC_a_USD(cantidad_BTC):
+def BTC_a_USD(cantidad_BTC): # Función para calcular cuántos $ son x BTC. Usa la constante UN_BTC_A_USD para realizar el cálculo..
     return cantidad_BTC * UN_BTC_A_USD
-# Función para calcular cuántos $ son x BTC. Usa la constante UN_BTC_A_USD para realizar el cálculo..
 
 # 3. Parte Principal del Script.
 def main():
@@ -21,7 +19,7 @@ def main():
         print("CALCULADORA BTC/USD SENZILLA")
         print("=" * 30)
 
-        while True: # Creamos un bucle para que los únicos valores aceptales sean escoger la opción de número [1] o [2].
+        while True: # Creamos un bucle para que los únicos valores aceptables sean escoger la opción de número [1] o [2].
             opcion = input("\n¿Qué conversión desea realizar? [1: USD a BTC] o [2: BTC a USD]")
 
             if opcion == '1' or opcion == '2':
@@ -38,7 +36,7 @@ def main():
 
             resultado_USD_a_BTC = USD_a_BTC(cantidad_USD) # Llamamos a la función que habrá realizado la conversión.
             print(f"\nEso son {resultado_USD_a_BTC:.8f} BTC")
-            # El .8f es para enseñar hasta 8 decimales, ya que las fracciones de criptos son muy pequeñas
+            # El .8f es para enseñar hasta 8 decimales, ya que las fracciones de criptos son muy pequeñas.
 
         elif opcion == "2":
             while True:

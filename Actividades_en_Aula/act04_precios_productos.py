@@ -1,5 +1,5 @@
 # Funciones de Ayuda
-def pedir_precio(mensaje: str) -> float: #Pedimos precio del producto al usuario.
+def pedir_precio(mensaje: str) -> float: # Pedimos precio del producto al usuario.
     while True:
         try:
             precio = float(input(mensaje))
@@ -10,7 +10,6 @@ def pedir_precio(mensaje: str) -> float: #Pedimos precio del producto al usuario
         except ValueError:
             print("Error: Introduce un número válido (usa punto para decimales).")
 
-
 def pedir_continuar() -> bool:
     while True:
         respuesta = input("\n¿Añadir otro producto? (s/n): ").strip().lower()
@@ -20,7 +19,6 @@ def pedir_continuar() -> bool:
             return False
         else:
             print("Error: Escribe 's' o 'n'.")
-
 
 # Función Principal
 def gestionar_compra():
@@ -89,7 +87,6 @@ def gestionar_compra():
 
     else:
         print("\nNo has comprado nada. ¡Gasto 0!")
-
 
 # --- 3. Ejecución ---
 if __name__ == "__main__":

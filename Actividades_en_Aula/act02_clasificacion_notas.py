@@ -1,6 +1,5 @@
 # Función para clasificar las notas en las diferentes posibles calificaciones.
-def clasificar_nota(nota: float) -> str:
-#Toma una nota numérica (float) y devuelve su calificación en texto (string).
+def clasificar_nota(nota: float) -> str: #Toma una nota numérica (float) y devuelve su calificación en texto (string).
 
     if nota < 5.0:  # 0-4.9
         return "Suspenso"
@@ -11,9 +10,8 @@ def clasificar_nota(nota: float) -> str:
     else:  # 9.0-10
         return "Sobresaliente"
 
-def main():
-# Función principal del script de notas.
- 
+def main(): # Función principal del script de notas.
+
     # 1. Lista de asignaturas
     asignaturas = ("Cálculo","Álgebra Lineal","Probabilidad y Estadística","Fundamentos de Programación")
 
@@ -29,12 +27,10 @@ def main():
         for asignatura in asignaturas:
             while True:
                 try:
-                    # Pedimos la nota para la asignatura actual
-                    nota_str = input(f"Introduce tu nota para {asignatura}: ")
+                    nota_str = input(f"Introduce tu nota para {asignatura}: ") # Pedimos la nota para la asignatura actual
                     nota_num = float(nota_str)
 
-                    # Comprobamos que la nota esté en el rango 0-10
-                    if 0 <= nota_num <= 10:
+                    if 0 <= nota_num <= 10: # Comprobamos que la nota esté en el rango 0-10
                         break  # Si es válida, salimos del bucle 'while'
                     else:
                         print("Error: La nota debe estar entre 0 y 10. Inténtalo de nuevo.\n")
@@ -45,10 +41,8 @@ def main():
             # 4. Clasificar y guardar la nota. # Llamamos a la función que creamos arriba
             
             calificacion = clasificar_nota(nota_num)
-
-            # Guardamos en el diccionario vacío que habíamos creado. 
-            # Creamos una "entrada" nueva, ej: "Cálculo": {"nota": 7.5, "calificacion": "Notable"}
-            resultados[asignatura] = {
+            
+            resultados[asignatura] = { # Guardamos en el diccionario vacío que habíamos creado. # Creamos una "entrada" nueva, ej: "Cálculo": {"nota": 7.5, "calificacion": "Notable"}
                 "nota": nota_num,
                 "calificacion": calificacion
             }
@@ -58,18 +52,14 @@ def main():
         print("   RESUMEN DE CALIFICACIONES")
         print("=" * 30)
 
-        # Iteramos sobre el diccionario de resultados que hemos llenado. 
-        # .items() nos da la clave (asignatura) y el valor (info)
-        for asignatura, info in resultados.items():
-        # Usamos un f-string para alinear la salida
-        # :<30  -> alinea el texto a la izquierda en un espacio de 30 caracteres
-            print(f"-> {asignatura:<30} | Nota: {info['nota']:<4} | {info['calificacion']}")
+        for asignatura, info in resultados.items(): # Iteramos sobre el diccionario de resultados que hemos llenado. # .items() nos da la clave (asignatura) y el valor (info)
+
+            print(f"-> {asignatura:<30} | Nota: {info['nota']:<4} | {info['calificacion']}") # Usamos un f-string para alinear la salida. # :<30  -> alinea el texto a la izquierda en un espacio de 30 caracteres
 
         respuesta = input("\n¿Quieres realizar otra clasificación? (s/n): ")
         if respuesta.lower().startswith('n'):
             print("\n¡Gracias! Adiós.")
             break
-
 
 # --- Punto de entrada del script ---
 if __name__ == "__main__":

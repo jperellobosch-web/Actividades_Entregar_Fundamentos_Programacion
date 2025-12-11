@@ -1,10 +1,7 @@
-# 1. Creamos diccionario. Creamos un diccionario vacío donde vamos a almacenar todos los jugadores con sus respectivas
-# características que el usuario añada.
+# 1. Creamos diccionario. Creamos un diccionario vacío donde vamos a almacenar todos los jugadores con sus respectivas características que el usuario añada.
 Jugadores = {}
 
-
-# 2. Funciones de validación para asegurar que cuando al usuario se le pida la información correspondiente, nos devuelva
-# los datos como se debe. Número de jugador como un entero, la altura en float...
+# 2. Funciones de validación para asegurar que cuando al usuario se le pida la información correspondiente, nos devuelva los datos como se debe. Número de jugador como un entero, la altura en float...
 
 def preguntar_numero_jugador(mensaje: str) -> int:
     while True:
@@ -13,14 +10,12 @@ def preguntar_numero_jugador(mensaje: str) -> int:
         except ValueError:
             print("Error: Introduce un número entero válido. (ej: 23 como Jordan)")
 
-
 def preguntar_altura_jugador(mensaje: str) -> float:
     while True:
         try:
             return float(input(mensaje))
         except ValueError:
             print("Error: Debes introducir un número válido (ej: 1.98).")
-
 
 def preguntar_continuar() -> bool:
     while True:
@@ -32,7 +27,6 @@ def preguntar_continuar() -> bool:
         else:
             print("Error: Escribe 's' para sí o 'n' para no.")
 
-
 # 3. Función Principal. Le pedimos la información del jugador al usuario.
 def preguntar_jugador():
     print("\n--- FICHA DE NUEVO JUGADOR ---")
@@ -42,9 +36,8 @@ def preguntar_jugador():
     altura = preguntar_altura_jugador("Altura (m) (ej: 1.98): ")
     return nombre, numero, altura
 
-
 # 4. Bloque de Ejecución (Guardar en Diccionario)
-if __name__ == "__main__":
+def main():
     print("BIENVENIDO AL GESTOR DE JUGADORES")
 
     while True:
@@ -74,3 +67,5 @@ if __name__ == "__main__":
     print("=" * 40)
     print("¡Programa finalizado!")
 
+if __name__ == "__main__":
+    main()

@@ -18,7 +18,7 @@ def get_btc_price() -> float | None:
         response.raise_for_status()  # Lanza un error si la respuesta no es 200
 
         # 3. Convertir la respuesta de JSON a un diccionario de Python
-        data = response.json()
+        data = response.json() 
 
         # 4. Extraer el precio (que viene como string) y convertirlo a float
         precio_str = data['data']['amount']
@@ -99,7 +99,7 @@ def main():
         respuesta = input("\n¿Quieres realizar otra conversión? (s/n): ")
         if respuesta.lower().startswith('n'):
             break  # Rompe el "Bucle Principal"
-    print("\n¡Gracias por usar la calculadora! Adiós. 👋")
+    print("\n¡Gracias por usar la calculadora! Adiós.")
 
 if __name__ == "__main__":
     main()

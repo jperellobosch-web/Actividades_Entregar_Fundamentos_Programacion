@@ -114,43 +114,50 @@ def encontrar_movil_ideal(presupuesto: float, os_preferido: str, camara_importan
 def main():
     print("¡Bienvenido al recomendador de móviles!")
     print("Te ayudaré a encontrar tu próximo móvil ideal.")
-    print("-" * 40)
+    
+    while True:
+        print("-" * 40)
 
-    # 1. Preguntar Presupuesto y aplicar regla de 150€
-    presupuesto = preguntar_presupuesto()
+        # 1. Preguntar Presupuesto y aplicar regla de 150€
+        presupuesto = preguntar_presupuesto()
 
-    if presupuesto < 150:
-        print("""
-        ¡Menos de 150€!
-        Con menos de 150€, no podemos recomendarte nada.
-        Cualquier móvil en ese rango será una castaña.
-        Ahorra un poco más pobre.""")
-        return  # Termina el programa
+        if presupuesto < 150:
+            print("""
+            ¡Menos de 150€!
+            Con menos de 150€, no podemos recomendarte nada.
+            Cualquier móvil en ese rango será una castaña.
+            Ahorra un poco más pobre.""")
+        
+        else:
+            # 2. Preguntar resto de preferencias.
+            os_pref = preguntar_os()
+            cam_imp = preguntar_camara()
 
-    # 2. Preguntar resto de preferencias
-    os_pref = preguntar_os()
-    cam_imp = preguntar_camara()
+            # 3. Buscar el móvil
+            print("\nBuscando la mejor opción para ti...")
+            movil_recomendado = encontrar_movil_ideal(presupuesto, os_pref, cam_imp)
 
-    # 3. Buscar el móvil
-    print("\nBuscando la mejor opción para ti...")
-    movil_recomendado = encontrar_movil_ideal(presupuesto, os_pref, cam_imp)
+            # 4. Dar el resultado
+            print("-" * 40)
+            if movil_recomendado:
+                print("¡Tenemos un ganador!")
+                print(f"Según tus preferencias, tu móvil ideal es el:")
+                print(f"   >>> {movil_recomendado['nombre']} <<<")
+                print(f"Su precio es de {movil_recomendado['precio']}€, que encaja en tu presupuesto de {presupuesto}€.")
 
-    # 4. Dar el resultado
-    print("-" * 40)
-    if movil_recomendado:
-        print("¡Tenemos un ganador!")
-        print(f"Según tus preferencias, tu móvil ideal es el:")
-        print(f"   >>> {movil_recomendado['nombre']} <<<")
-        print(f"Su precio es de {movil_recomendado['precio']}€, que encaja en tu presupuesto de {presupuesto}€.")
+                if cam_imp:
+                    print("Además, es un modelo conocido por su ¡excelente cámara! 📸")
 
-        if cam_imp:
-            print("Además, es un modelo conocido por su ¡excelente cámara! 📸")
+            else:
+                print("Vaya... no hemos encontrado un móvil ideal.")
+                print("Con esos filtros (S.O., cámara y presupuesto) no hay nada en nuestro catálogo.")
+                print("Intenta ser un poco más flexible (ej: con la cámara o el presupuesto).")
 
-    else:
-        print("Vaya... no hemos encontrado un móvil ideal.")
-        print("Con esos filtros (S.O., cámara y presupuesto) no hay nada en nuestro catálogo.")
-        print("Intenta ser un poco más flexible (ej: con la cámara o el presupuesto).")
-
+        # 5. Preguntar si quiere repetir
+        repetir = input("\n¿Quieres buscar otro móvil? (s/n): ")
+        if repetir.lower() != 's':
+            print("¡Gracias por usar el recomendador de móviles! ¡Hasta la próxima!")
+            break
 
 # --- 5. Punto de entrada ---
 if __name__ == "__main__":
