@@ -1,7 +1,7 @@
 import requests
 import sys
 
-# URL de la API de Coinbase para el precio de BTC en USD. En mayúsculas para indicar que es una constante.
+# URL de la API de Coinbase para el precio de BTC en USD instantáeno. En mayúsculas para indicar que es una constante.
 API_URL = "https://api.coinbase.com/v2/prices/BTC-USD/spot"
 
 def get_btc_price() -> float | None:

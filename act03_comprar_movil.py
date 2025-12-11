@@ -112,7 +112,7 @@ def encontrar_movil_ideal(presupuesto: float, os_preferido: str, camara_importan
 # 4. Función Main
 
 def main():
-    print("👋 ¡Bienvenido al recomendador de móviles!")
+    print("¡Bienvenido al recomendador de móviles!")
     print("Te ayudaré a encontrar tu próximo móvil ideal.")
     print("-" * 40)
 
@@ -121,10 +121,10 @@ def main():
 
     if presupuesto < 150:
         print("""
-        ¡Menos de 150€!😱
+        ¡Menos de 150€!
         Con menos de 150€, no podemos recomendarte nada.
         Cualquier móvil en ese rango será una castaña.
-        Ahorra un poco más pobre.😈""")
+        Ahorra un poco más pobre.""")
         return  # Termina el programa
 
     # 2. Preguntar resto de preferencias
@@ -138,7 +138,7 @@ def main():
     # 4. Dar el resultado
     print("-" * 40)
     if movil_recomendado:
-        print("🎉 ¡Tenemos un ganador!")
+        print("¡Tenemos un ganador!")
         print(f"Según tus preferencias, tu móvil ideal es el:")
         print(f"   >>> {movil_recomendado['nombre']} <<<")
         print(f"Su precio es de {movil_recomendado['precio']}€, que encaja en tu presupuesto de {presupuesto}€.")
@@ -147,7 +147,7 @@ def main():
             print("Además, es un modelo conocido por su ¡excelente cámara! 📸")
 
     else:
-        print("😔 Vaya... no hemos encontrado un móvil ideal.")
+        print("Vaya... no hemos encontrado un móvil ideal.")
         print("Con esos filtros (S.O., cámara y presupuesto) no hay nada en nuestro catálogo.")
         print("Intenta ser un poco más flexible (ej: con la cámara o el presupuesto).")
 

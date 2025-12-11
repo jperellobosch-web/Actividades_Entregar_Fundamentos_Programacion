@@ -13,55 +13,62 @@ def clasificar_nota(nota: float) -> str:
 
 def main():
 # Función principal del script de notas.
-
+ 
     # 1. Lista de asignaturas
     asignaturas = ("Cálculo","Álgebra Lineal","Probabilidad y Estadística","Fundamentos de Programación")
 
-    # 2. Un diccionario vacío para guardar las notas
-    resultados = {}
+    while True:  # Bucle Principal para permitir repetir la clasificación si el usuario lo desea.
 
-    print("\n--- Introducción de Notas ---")
-    print("Por favor, introduce tus notas (de 0 a 10).\n")
+        # 2. Un diccionario vacío para guardar las notas
+        resultados = {}
 
-    # 3. Bucle para preguntar por cada asignatura de la lista
-    for asignatura in asignaturas:
-        while True:
-            try:
-                # Pedimos la nota para la asignatura actual
-                nota_str = input(f"Introduce tu nota para {asignatura}: ")
-                nota_num = float(nota_str)
+        print("\n--- Introducción de Notas ---")
+        print("Por favor, introduce tus notas (de 0 a 10).\n")
 
-                # Comprobamos que la nota esté en el rango 0-10
-                if 0 <= nota_num <= 10:
-                    break  # Si es válida, salimos del bucle 'while'
-                else:
-                    print("Error: La nota debe estar entre 0 y 10. Inténtalo de nuevo.\n")
+        # 3. Bucle para preguntar por cada asignatura de la lista
+        for asignatura in asignaturas:
+            while True:
+                try:
+                    # Pedimos la nota para la asignatura actual
+                    nota_str = input(f"Introduce tu nota para {asignatura}: ")
+                    nota_num = float(nota_str)
 
-            except ValueError:
-                print("Error: Eso no es un número. Inténtalo de nuevo (ej: 7.5).\n")
+                    # Comprobamos que la nota esté en el rango 0-10
+                    if 0 <= nota_num <= 10:
+                        break  # Si es válida, salimos del bucle 'while'
+                    else:
+                        print("Error: La nota debe estar entre 0 y 10. Inténtalo de nuevo.\n")
 
-        # 4. Clasificar y guardar la nota
-        # Llamamos a la función que creamos arriba
-        calificacion = clasificar_nota(nota_num)
+                except ValueError:
+                    print("Error: Eso no es un número. Inténtalo de nuevo (ej: 7.5).\n")
 
-        # Guardamos en el diccionario vacío que habíamos creado.
-        # Creamos una "entrada" nueva, ej: "Cálculo": {"nota": 7.5, "calificacion": "Notable"}
-        resultados[asignatura] = {
-            "nota": nota_num,
-            "calificacion": calificacion
-        }
+            # 4. Clasificar y guardar la nota. # Llamamos a la función que creamos arriba
+            
+            calificacion = clasificar_nota(nota_num)
 
-    # 5. Mostrar todos los resultados al final
-    print("\n" + "=" * 30)
-    print("   RESUMEN DE CALIFICACIONES")
-    print("=" * 30)
+            # Guardamos en el diccionario vacío que habíamos creado. 
+            # Creamos una "entrada" nueva, ej: "Cálculo": {"nota": 7.5, "calificacion": "Notable"}
+            resultados[asignatura] = {
+                "nota": nota_num,
+                "calificacion": calificacion
+            }
 
-    # Iteramos sobre el diccionario de resultados que hemos llenado
-    # .items() nos da la clave (asignatura) y el valor (info)
-    for asignatura, info in resultados.items():
+        #5. Mostrar todos los resultados al final
+        print("\n" + "=" * 30)
+        print("   RESUMEN DE CALIFICACIONES")
+        print("=" * 30)
+
+        # Iteramos sobre el diccionario de resultados que hemos llenado. 
+        # .items() nos da la clave (asignatura) y el valor (info)
+        for asignatura, info in resultados.items():
         # Usamos un f-string para alinear la salida
         # :<30  -> alinea el texto a la izquierda en un espacio de 30 caracteres
-        print(f"-> {asignatura:<30} | Nota: {info['nota']:<4} | {info['calificacion']}")
+            print(f"-> {asignatura:<30} | Nota: {info['nota']:<4} | {info['calificacion']}")
+
+        respuesta = input("\n¿Quieres realizar otra clasificación? (s/n): ")
+        if respuesta.lower().startswith('n'):
+            print("\n¡Gracias! Adiós.")
+            break
 
 
 # --- Punto de entrada del script ---
