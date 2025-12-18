@@ -146,7 +146,7 @@ def main():
                 print(f"Su precio es de {movil_recomendado['precio']}€, que encaja en tu presupuesto de {presupuesto}€.")
 
                 if cam_imp:
-                    print("Además, es un modelo conocido por su ¡excelente cámara! 📸")
+                    print("Además, es un modelo conocido por su ¡excelente cámara!")
 
             else:
                 print("Vaya... no hemos encontrado un móvil ideal.")
